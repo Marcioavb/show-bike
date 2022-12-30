@@ -2,6 +2,7 @@ package br.com.showbike.clientebike.cliente.application.api;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import br.com.showbike.clientebike.cliente.domain.Cliente;
 import lombok.Value;
@@ -15,6 +16,17 @@ public class ClienteListResponse {
 	private String celular;
 
 	public static List<ClienteListResponse> converte(List<Cliente> clientes) {
-		return null;
+		return clientes.stream()
+				.map(ClienteListResponse::new)
+				.collect(Collectors.toList());
+	}
+
+	public ClienteListResponse(Cliente cliente) {
+		super();
+		this.idCliente = cliente.getIdCliente();
+		this.nomeCompleto = cliente.getNomeCompleto();
+		this.cpf = cliente.getCpf();
+		this.email = cliente.getEmail();
+		this.celular = cliente.getCelular();
 	}
 }
