@@ -1,7 +1,10 @@
 package br.com.showbike.clientebike.cliente.application.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import br.com.showbike.clientebike.cliente.application.api.ClienteListResponse;
 import br.com.showbike.clientebike.cliente.application.api.ClienteRequest;
 import br.com.showbike.clientebike.cliente.application.api.ClienteResponse;
 import br.com.showbike.clientebike.cliente.application.repository.ClienteRepository;
@@ -23,5 +26,12 @@ public class ClienteApplicationService implements ClienteService {
 		return ClienteResponse.builder()
 				.idCliente(cliente.getIdCliente())
 				.build();
+	}
+
+	@Override
+	public List<ClienteListResponse> buscaTodosClientes() {
+		log.info("[inicia] ClienteApplicationService - buscaTodosClientes");
+		log.info("[finaliza] ClienteApplicationService - buscaTodosClientes");
+		return null;
 	}
 }
