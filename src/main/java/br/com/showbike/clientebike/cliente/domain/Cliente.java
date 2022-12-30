@@ -3,6 +3,7 @@ package br.com.showbike.clientebike.cliente.domain;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
+
 import org.hibernate.validator.constraints.br.CPF;
 
 import br.com.showbike.clientebike.cliente.application.api.ClienteRequest;
@@ -25,19 +26,19 @@ public class Cliente {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(columnDefinition = "uuid", name = "id", updatable = false, unique = true, nullable = false)
+	@Column(columnDefinition = "uuid", name = "idCliente", updatable = false, unique = true, nullable = false)
 	private UUID idCliente;
 	@NotBlank
 	private String nomeCompleto;
 	@NotBlank
 	@Email
 	private String email;
-	@NotBlank
 	private String celular;
 	private String telefone;
 	private Sexo sexo;
 	@NotNull
 	private LocalDate dataNascimento;
+	@NotBlank
 	@CPF
 	private String cpf;
 
