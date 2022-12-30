@@ -1,7 +1,10 @@
 package br.com.showbike.clientebike.cliente.infra;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
+import br.com.showbike.clientebike.cliente.application.api.ClienteListResponse;
 import br.com.showbike.clientebike.cliente.application.repository.ClienteRepository;
 import br.com.showbike.clientebike.cliente.domain.Cliente;
 import lombok.RequiredArgsConstructor;
@@ -19,5 +22,12 @@ public class ClienteInfraRepository implements ClienteRepository {
 		clienteSpringDataJPARepository.save(cliente);
 		log.info("[finaliza} ClienteInfraREpository - salva");
 		return cliente;
+	}
+
+	@Override
+	public List<Cliente> buscaTodosClientes() {
+		log.info("[inicio} ClienteInfraREpository - buscaTodosClientes");
+		log.info("[finaliza} ClienteInfraREpository - buscaTodosClientes");
+		return null;
 	}
 }
