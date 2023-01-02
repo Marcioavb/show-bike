@@ -19,6 +19,7 @@ public class ClienteListResponse {
 		return clientes.stream()
 				.map(ClienteListResponse::new)
 				.collect(Collectors.toList());
+			
 	}
 
 	public ClienteListResponse(Cliente cliente) {
