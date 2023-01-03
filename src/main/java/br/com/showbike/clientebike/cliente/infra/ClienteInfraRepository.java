@@ -20,15 +20,15 @@ public class ClienteInfraRepository implements ClienteRepository {
 
 	@Override
 	public Cliente salva(Cliente cliente) {
-		log.info("[inicio} ClienteInfraREpository - salva");
+		log.info("[inicio} ClienteInfraRepository - salva");
 		clienteSpringDataJPARepository.save(cliente);
-		log.info("[finaliza} ClienteInfraREpository - salva");
+		log.info("[finaliza} ClienteInfraRepository - salva");
 		return cliente;
 	}
 
 	@Override
 	public List<Cliente> buscaTodosClientes() {
-		log.info("[inicio} ClienteInfraREpository - buscaTodosClientes");
+		log.info("[inicio} ClienteInfraRepository - buscaTodosClientes");
 		List<Cliente> todosClientes = clienteSpringDataJPARepository.findAll();
 		log.info("[finaliza} ClienteInfraREpository - buscaTodosClientes");
 		return todosClientes;
@@ -36,10 +36,17 @@ public class ClienteInfraRepository implements ClienteRepository {
 
 	@Override
 	public Cliente buscaClienteAtravesDoId(UUID idCliente) {
-		log.info("[inicio} ClienteInfraREpository - buscaClienteAtravesDoId");
+		log.info("[inicio} ClienteInfraRepository - buscaClienteAtravesDoId");
 		Cliente cliente = clienteSpringDataJPARepository.findById(idCliente)
 				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Cliente nao encontardo!"));
-		log.info("[finaliza} ClienteInfraREpository - buscaClienteAtravesDoId");
+		log.info("[finaliza} ClienteInfraRepository - buscaClienteAtravesDoId");
 		return cliente;
+	}
+
+	@Override
+	public void deletaCliente(Cliente cliente) {
+		log.info("[inicio} ClienteInfraRepository - deletaCliente");
+		clienteSpringDataJPARepository.delete(cliente);
+		log.info("[finaliza} ClienteInfraRepository - deletaCliente");
 	}
 }
