@@ -40,8 +40,8 @@ public interface ClienteApi {
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	void patchAlteraCliente(@PathVariable UUID idCliente, 
 			@Valid @RequestBody ClienteAlteracaoRequest clienteAlteracaoRequest);
-//	
-//	@GetMapping(value = "/{cpf}")
-//	@ResponseStatus(code = HttpStatus.OK)
-//	ClienteResponseCpf getClienteAtravesCpf(@PathVariable String cpf);
+	
+	@GetMapping(value = "/{cpf}")
+	@ResponseStatus(code = HttpStatus.OK)
+	ClienteResponseCpf getClienteAtravesCpf(@PathVariable String cpf);
 }
