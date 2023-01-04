@@ -59,12 +59,10 @@ public class Cliente {
 
 	public void altera(ClienteAlteracaoRequest clienteRequest) {
 		this.nomeCompleto = clienteRequest.getNomeCompleto();
-		this.email = clienteRequest.getEmail();
 		this.celular = clienteRequest.getCelular();
 		this.telefone = clienteRequest.getTelefone();
 		this.sexo = clienteRequest.getSexo();
 		this.dataNascimento = clienteRequest.getDataNascimento();
-		this.cpf = clienteRequest.getCpf();
 		this.dataHoraDaUltimaAlteracao = LocalDateTime.now();
 	}
 }
