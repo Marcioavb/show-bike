@@ -14,15 +14,9 @@ import lombok.Value;
 public class ClienteAlteracaoRequest {
 	@NotBlank
 	private String nomeCompleto;
-	@NotBlank
-	@Email
-	private String email;
 	private String celular;
 	private String telefone;
 	private Sexo sexo;
 	@NotNull
 	private LocalDate dataNascimento;
-	@NotBlank
-	@CPF
-	private String cpf;
 }
