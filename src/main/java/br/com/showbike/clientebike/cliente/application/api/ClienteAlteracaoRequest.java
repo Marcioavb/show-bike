@@ -11,7 +11,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Value;
 
 @Value
-public class ClienteRequest {
+public class ClienteAlteracaoRequest {
 	@NotBlank
 	private String nomeCompleto;
 	@NotBlank
