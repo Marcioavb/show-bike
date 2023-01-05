@@ -2,6 +2,8 @@ package br.com.showbike.clientebike.bike.domain;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
+
+import br.com.showbike.clientebike.bike.application.api.BikeRequest;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -9,21 +11,23 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Entity
 @Getter
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class Bike {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(columnDefinition = "uuid", name = "idCliente", updatable = false, unique = true, nullable = false)
 	private UUID idBike;
+	@NotNull
 	@Column(columnDefinition = "uuid", name = "idClientePropietario", nullable = false)
 	private UUID idClientePropietario;
 	@NotNull
@@ -41,14 +45,14 @@ public class Bike {
 	private LocalDateTime datahoraDoCadastro;
 	private LocalDateTime dataHoraDaUltimaAlteracao;
 	
-	public Bike(UUID idBike, UUID idClientePropietario, @NotBlank Marca marca, @NotBlank String modelo,
-			@NotBlank String aro, @NotBlank String cor, @NotNull Number numeroDeSerie) {
-		this.idBike = idBike;
-		this.idClientePropietario = idClientePropietario;
-		this.marca = marca;
-		this.modelo = modelo;
-		this.aro = aro;
-		this.cor = cor;
-		this.numeroDeSerie = numeroDeSerie;
+
+	public Bike(UUID idCliente, @Valid BikeRequest bikeRequest) {
+		this.idClientePropietario = idCliente;
+		this.marca = bikeRequest.getMarca();
+		this.modelo = bikeRequest.getModelo();
+		this.aro = bikeRequest.getAro();
+		this.cor = bikeRequest.getCor();
+		this.numeroDeSerie = bikeRequest.getNumeroDeSerie();
+		this.datahoraDoCadastro = LocalDateTime.now();
 	}
 }
