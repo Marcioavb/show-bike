@@ -26,6 +26,7 @@ public class Bike {
 	private UUID idBike;
 	@Column(columnDefinition = "uuid", name = "idClientePropietario", nullable = false)
 	private UUID idClientePropietario;
+	@NotNull
 	@Enumerated(EnumType.STRING)
 	private Marca marca;
 	@NotBlank

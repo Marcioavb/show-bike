@@ -1,5 +1,10 @@
 package br.com.showbike.clientebike.bike.application.api;
 
-public class BikeResponse {
+import java.util.UUID;
 
+import lombok.Value;
+
+@Value
+public class BikeResponse {
+	private UUID idBike;
 }
