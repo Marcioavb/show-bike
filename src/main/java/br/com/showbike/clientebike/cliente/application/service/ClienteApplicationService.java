@@ -68,7 +68,8 @@ public class ClienteApplicationService implements ClienteService {
 	@Override
 	public ClienteResponseCpf getClienteAtravesCpf(String cpf) {
 		log.info("[inicia] ClienteApplicationService - getClienteAtravesCpf");
+		Cliente cliente = clienteRepository.getClienteAtravesCpf(cpf);
 		log.info("[finaliza] ClienteApplicationService - getClienteAtravesCpf");
-		return null;
+		return new ClienteResponseCpf(cliente);
 	}
 }

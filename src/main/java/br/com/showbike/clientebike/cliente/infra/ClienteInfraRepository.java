@@ -49,4 +49,11 @@ public class ClienteInfraRepository implements ClienteRepository {
 		clienteSpringDataJPARepository.delete(cliente);
 		log.info("[finaliza} ClienteInfraRepository - deletaCliente");
 	}
+
+	@Override
+	public Cliente getClienteAtravesCpf(String cpf) {
+		log.info("[inicio} ClienteInfraRepository - getClienteAtravesCpf");
+		log.info("[finaliza} ClienteInfraRepository - getClienteAtravesCpf");
+		return null;
+	}
 }
