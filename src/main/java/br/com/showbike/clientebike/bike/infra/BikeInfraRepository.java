@@ -1,5 +1,8 @@
 package br.com.showbike.clientebike.bike.infra;
 
+import java.util.List;
+import java.util.UUID;
+
 import org.springframework.stereotype.Repository;
 
 import br.com.showbike.clientebike.bike.application.repository.BikeRepository;
@@ -19,5 +22,12 @@ public class BikeInfraRepository implements BikeRepository {
 		bikeSpringDataJPARepository.save(bike);
 		log.info("[finaliza] BikeInfraRepository - salvaBike");
 		return bike;
+	}
+
+	@Override
+	public List<Bike> buscaBikesDoCliente(UUID idCliente) {
+		log.info("[inicio] BikeInfraRepository - buscaBikesDoCliente");
+		log.info("[finaliza] BikeInfraRepository - buscaBikesDoCliente");
+		return null;
 	}
 }

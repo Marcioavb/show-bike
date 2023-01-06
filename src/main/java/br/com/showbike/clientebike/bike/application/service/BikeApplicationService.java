@@ -34,7 +34,8 @@ public class BikeApplicationService implements BikeService {
 	public List<BikeClienteListReponse> buscaTodasBikeCliente(UUID idCliente) {
 		log.info("[inicio] BikeApplicationService - buscaTodasBikeCliente");
 		clienteService.buscaClienteAtravesId(idCliente);
+		List<Bike> bikesDoCliente = bikeRepository.buscaBikesDoCliente(idCliente);
 		log.info("[finaliza] BikeApplicationService - buscaTodasBikeCliente");
-		return null;
+		return BikeClienteListReponse.converte(bikesDoCliente);
 	}
 }
