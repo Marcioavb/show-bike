@@ -1,9 +1,11 @@
 package br.com.showbike.clientebike.bike.application.service;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import br.com.showbike.clientebike.bike.application.api.BikeClienteListReponse;
 import br.com.showbike.clientebike.bike.application.api.BikeRequest;
 import br.com.showbike.clientebike.bike.application.api.BikeResponse;
 import br.com.showbike.clientebike.bike.application.repository.BikeRepository;
@@ -26,5 +28,13 @@ public class BikeApplicationService implements BikeService {
 		Bike bike = bikeRepository.salvaBike(new Bike(idCliente, bikeRequest));
 		log.info("[finaliza] BikeApplicationService - criaBike");
 		return new BikeResponse(bike.getIdBike());
+	}
+
+	@Override
+	public List<BikeClienteListReponse> buscaTodasBikeCliente(UUID idCliente) {
+		log.info("[inicio] BikeApplicationService - buscaTodasBikeCliente");
+		clienteService.buscaClienteAtravesId(idCliente);
+		log.info("[finaliza] BikeApplicationService - buscaTodasBikeCliente");
+		return null;
 	}
 }
