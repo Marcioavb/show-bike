@@ -10,6 +10,7 @@ import br.com.showbike.clientebike.cliente.application.api.ClienteDetalhadoRespo
 import br.com.showbike.clientebike.cliente.application.api.ClienteListResponse;
 import br.com.showbike.clientebike.cliente.application.api.ClienteRequest;
 import br.com.showbike.clientebike.cliente.application.api.ClienteResponse;
+import br.com.showbike.clientebike.cliente.application.api.ClienteResponseCpf;
 import br.com.showbike.clientebike.cliente.application.repository.ClienteRepository;
 import br.com.showbike.clientebike.cliente.domain.Cliente;
 import lombok.RequiredArgsConstructor;
@@ -62,5 +63,12 @@ public class ClienteApplicationService implements ClienteService {
 		cliente.altera(clienteAlteracaoRequest);
 		clienteRepository.salva(cliente);
 		log.info("[finaliza] ClienteApplicationService - patchAlteraCliente");
+	}
+
+	@Override
+	public ClienteResponseCpf getClienteAtravesCpf(String cpf) {
+		log.info("[inicia] ClienteApplicationService - getClienteAtravesCpf");
+		log.info("[finaliza] ClienteApplicationService - getClienteAtravesCpf");
+		return null;
 	}
 }

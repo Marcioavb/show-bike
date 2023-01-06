@@ -59,7 +59,9 @@ public class ClienteController implements ClienteApi {
 	@Override
 	public ClienteResponseCpf getClienteAtravesCpf( String cpf) {
 		log.info("[inicia] ClienteController - getClienteAtravesComId");
+		log.info("[idCliente] {}", cpf);
+		ClienteResponseCpf clienteREsponsecpf = clienteService.getClienteAtravesCpf(cpf);
 		log.info("[finaliza] ClienteController - getClienteAtravesComId");
-		return null;
+		return clienteREsponsecpf;
 	}
 }
