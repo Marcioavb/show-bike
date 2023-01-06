@@ -16,5 +16,5 @@ public class BikeRequest {
 	@NotBlank
 	private String cor;
 	@NotNull
-	private Number numeroDeSerie;
+	private String numeroDeSerie;
 }

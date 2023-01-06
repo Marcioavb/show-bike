@@ -40,7 +40,7 @@ public class Bike {
 	@NotBlank
 	private String cor;
 	@NotNull
-	private Number numeroDeSerie;
+	private String numeroDeSerie;
 	
 	private LocalDateTime datahoraDoCadastro;
 	private LocalDateTime dataHoraDaUltimaAlteracao;
