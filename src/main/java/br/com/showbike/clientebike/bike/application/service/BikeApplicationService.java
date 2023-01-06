@@ -9,7 +9,6 @@ import br.com.showbike.clientebike.bike.application.api.BikeResponse;
 import br.com.showbike.clientebike.bike.application.repository.BikeRepository;
 import br.com.showbike.clientebike.bike.domain.Bike;
 import br.com.showbike.clientebike.cliente.application.service.ClienteService;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -21,7 +20,7 @@ public class BikeApplicationService implements BikeService {
 	private final BikeRepository bikeRepository;
 
 	@Override
-	public BikeResponse criaBike(UUID idCliente, @Valid BikeRequest bikeRequest) {
+	public BikeResponse criaBike(UUID idCliente, BikeRequest bikeRequest) {
 		log.info("[inicio] BikeApplicationService - criaBike");
 		clienteService.buscaClienteAtravesId(idCliente);
 		Bike bike = bikeRepository.salvaBike(new Bike(idCliente, bikeRequest));

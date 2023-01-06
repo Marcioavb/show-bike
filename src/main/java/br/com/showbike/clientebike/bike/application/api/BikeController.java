@@ -1,11 +1,11 @@
 package br.com.showbike.clientebike.bike.application.api;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.showbike.clientebike.bike.application.service.BikeService;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -16,11 +16,19 @@ public class BikeController implements BikeApi {
 	private final BikeService bikeService;
 
 	@Override
-	public BikeResponse postBike(UUID idCliente, @Valid BikeRequest bikeRequest) {
+	public BikeResponse postBike(UUID idCliente, BikeRequest bikeRequest) {
 		log.info("[inicio] BikeController - postBike");
 		log.info("[idCliente] {}", idCliente);
 		BikeResponse bike = bikeService.criaBike(idCliente, bikeRequest);
 		log.info("[finaliza] BikeController - postBike");
 		return bike;
+	}
+
+	@Override
+	public List<BikeClienteListReponse> getBikesDoCliente(UUID idCliente) {
+		log.info("[inicio] BikeController - getBikesDoCliente");
+		log.info("[idCliente] {}", idCliente);
+		log.info("[finaliza] BikeController - getBikesDoCliente");
+		return null;
 	}
 }

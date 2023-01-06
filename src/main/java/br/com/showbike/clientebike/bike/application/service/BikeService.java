@@ -4,8 +4,7 @@ import java.util.UUID;
 
 import br.com.showbike.clientebike.bike.application.api.BikeRequest;
 import br.com.showbike.clientebike.bike.application.api.BikeResponse;
-import jakarta.validation.Valid;
 
 public interface BikeService {
-	BikeResponse criaBike(UUID idCliente, @Valid BikeRequest bikeRequest);
+	BikeResponse criaBike(UUID idCliente, BikeRequest bikeRequest);
 }
