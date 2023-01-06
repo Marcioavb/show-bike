@@ -53,7 +53,9 @@ public class ClienteInfraRepository implements ClienteRepository {
 	@Override
 	public Cliente getClienteAtravesCpf(String cpf) {
 		log.info("[inicio} ClienteInfraRepository - getClienteAtravesCpf");
+		Cliente cliente = clienteSpringDataJPARepository.findByCpf(cpf)
+				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Cliente nao encontardo!"));
 		log.info("[finaliza} ClienteInfraRepository - getClienteAtravesCpf");
-		return null;
+		return cliente;
 	}
 }
