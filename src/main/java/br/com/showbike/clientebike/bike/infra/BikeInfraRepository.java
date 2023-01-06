@@ -27,7 +27,8 @@ public class BikeInfraRepository implements BikeRepository {
 	@Override
 	public List<Bike> buscaBikesDoCliente(UUID idCliente) {
 		log.info("[inicio] BikeInfraRepository - buscaBikesDoCliente");
+		var bikes = bikeSpringDataJPARepository.findByIdClientePropietario(idCliente);
 		log.info("[finaliza] BikeInfraRepository - buscaBikesDoCliente");
-		return null;
+		return bikes;
 	}
 }
