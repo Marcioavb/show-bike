@@ -31,4 +31,11 @@ public class BikeInfraRepository implements BikeRepository {
 		log.info("[finaliza] BikeInfraRepository - buscaBikesDoCliente");
 		return bikes;
 	}
+
+	@Override
+	public Bike buscaBikeDoClienteComId(UUID idBike) {
+		log.info("[inicio] BikeInfraRepository - buscaBikesDoCliente");
+		log.info("[finaliza] BikeInfraRepository - buscaBikesDoCliente");
+		return null;
+	}
 }

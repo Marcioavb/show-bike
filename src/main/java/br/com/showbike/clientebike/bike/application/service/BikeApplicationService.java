@@ -44,7 +44,8 @@ public class BikeApplicationService implements BikeService {
 	public BikeClienteDetalhadoResponse buscaBikeDoClienteComId(UUID idCliente, UUID idBike) {
 		log.info("[inicio] BikeApplicationService - buscaBikeDoClienteComId");
 		clienteService.buscaClienteAtravesId(idCliente);
+		Bike bike = bikeRepository.buscaBikeDoClienteComId(idBike);
 		log.info("[finaliza] BikeApplicationService - buscaBikeDoClienteComId");
-		return null;
+		return new BikeClienteDetalhadoResponse(bike);
 	}
 }
