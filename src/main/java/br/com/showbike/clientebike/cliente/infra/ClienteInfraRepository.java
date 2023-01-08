@@ -49,4 +49,13 @@ public class ClienteInfraRepository implements ClienteRepository {
 		clienteSpringDataJPARepository.delete(cliente);
 		log.info("[finaliza} ClienteInfraRepository - deletaCliente");
 	}
+
+	@Override
+	public Cliente getClienteAtravesCpf(String cpf) {
+		log.info("[inicio} ClienteInfraRepository - getClienteAtravesCpf");
+		Cliente cliente = clienteSpringDataJPARepository.findByCpf(cpf)
+				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Cliente nao encontardo!"));
+		log.info("[finaliza} ClienteInfraRepository - getClienteAtravesCpf");
+		return cliente;
+	}
 }

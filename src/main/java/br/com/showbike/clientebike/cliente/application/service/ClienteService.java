@@ -8,6 +8,7 @@ import br.com.showbike.clientebike.cliente.application.api.ClienteDetalhadoRespo
 import br.com.showbike.clientebike.cliente.application.api.ClienteListResponse;
 import br.com.showbike.clientebike.cliente.application.api.ClienteRequest;
 import br.com.showbike.clientebike.cliente.application.api.ClienteResponse;
+import br.com.showbike.clientebike.cliente.application.api.ClienteResponseCpf;
 
 public interface ClienteService {
 	ClienteResponse criaCliente(ClienteRequest clienteRequest);
@@ -15,4 +16,5 @@ public interface ClienteService {
 	ClienteDetalhadoResponse buscaClienteAtravesId(UUID idCliente);
 	void deletaClienteAtravesId(UUID idCliente);
 	void patchAlteraCliente(UUID idCliente, ClienteAlteracaoRequest clienteAlteracaoRequest);
+	ClienteResponseCpf getClienteAtravesCpf(String cpf);
 }
