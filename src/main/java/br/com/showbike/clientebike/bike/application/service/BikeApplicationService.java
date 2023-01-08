@@ -48,4 +48,11 @@ public class BikeApplicationService implements BikeService {
 		log.info("[finaliza] BikeApplicationService - buscaBikeDoClienteComId");
 		return new BikeClienteDetalhadoResponse(bike);
 	}
+
+	@Override
+	public void deletaBikeComId(UUID idCliente, UUID idBike) {
+		log.info("[inicio] BikeApplicationService - deletaBikeComId");
+		clienteService.buscaClienteAtravesId(idCliente);
+		log.info("[finaliza] BikeApplicationService - deletaBikeComId");
+	}
 }

@@ -12,4 +12,5 @@ public interface BikeService {
 	BikeResponse criaBike(UUID idCliente, BikeRequest bikeRequest);
 	List<BikeClienteListReponse> buscaTodasBikeCliente(UUID idCliente);
 	BikeClienteDetalhadoResponse buscaBikeDoClienteComId(UUID idCliente, UUID idBike);
+	void deletaBikeComId(UUID idCliente, UUID idBike);
 }
