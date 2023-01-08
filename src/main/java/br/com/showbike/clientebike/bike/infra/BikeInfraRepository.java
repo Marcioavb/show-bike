@@ -42,4 +42,11 @@ public class BikeInfraRepository implements BikeRepository {
 		log.info("[finaliza] BikeInfraRepository - buscaBikesDoCliente");
 		return bike;
 	}
+
+	@Override
+	public void deletaBike(Bike bike) {
+		log.info("[inicio] BikeInfraRepository - buscaBikesDoCliente");
+		bikeSpringDataJPARepository.delete(bike);
+		log.info("[finaliza] BikeInfraRepository - buscaBikesDoCliente");
+	}
 }

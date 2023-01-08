@@ -9,4 +9,5 @@ public interface BikeRepository {
 	Bike salvaBike(Bike bike);
 	List<Bike> buscaBikesDoCliente(UUID idCliente);
 	Bike buscaBikeDoClienteComId(UUID idBike);
+	void deletaBike(Bike bike);
 }

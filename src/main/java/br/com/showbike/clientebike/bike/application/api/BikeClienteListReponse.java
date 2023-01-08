@@ -1,6 +1,7 @@
 package br.com.showbike.clientebike.bike.application.api;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import br.com.showbike.clientebike.bike.domain.Bike;
@@ -9,6 +10,7 @@ import lombok.Value;
 
 @Value
 public class BikeClienteListReponse {
+	private UUID idBike;
 	private Marca marca;
 	private String modelo;;
 	private String aro;
@@ -23,6 +25,7 @@ public class BikeClienteListReponse {
 	}
 
 	public BikeClienteListReponse(Bike bike) {
+		this.idBike = bike.getIdBike();
 		this.marca = bike.getMarca();
 		this.modelo = bike.getModelo();
 		this.aro = bike.getAro();
