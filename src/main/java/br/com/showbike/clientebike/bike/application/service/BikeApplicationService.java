@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.showbike.clientebike.bike.application.api.BikeClienteDetalhadoResponse;
 import br.com.showbike.clientebike.bike.application.api.BikeClienteListReponse;
+import br.com.showbike.clientebike.bike.application.api.BikeEditadaRequest;
 import br.com.showbike.clientebike.bike.application.api.BikeRequest;
 import br.com.showbike.clientebike.bike.application.api.BikeResponse;
 import br.com.showbike.clientebike.bike.application.repository.BikeRepository;
@@ -59,9 +60,12 @@ public class BikeApplicationService implements BikeService {
 	}
 
 	@Override
-	public void alteraBikeComId(UUID idCliente, UUID idBike) {
+	public void alteraBikeComId(UUID idCliente, UUID idBike, BikeEditadaRequest bikeEditadaRequest) {
 		log.info("[inicio] BikeApplicationService - deletaBikeComId");
 		clienteService.buscaClienteAtravesId(idCliente);
+		Bike bike = bikeRepository.buscaBikeDoClienteComId(idBike);
+		bike.altera(bikeEditadaRequest);
+		bikeRepository.salvaBike(bike);
 		log.info("[finmaliza] BikeApplicationService - deletaBikeComId");
 	}
 }

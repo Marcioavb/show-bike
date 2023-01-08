@@ -42,5 +42,5 @@ public interface BikeApi {
 	@PatchMapping(value = "/{idBike}")
 	@ResponseStatus(code = HttpStatus.OK)
 	void patchAlteraBike(@PathVariable UUID idCliente, @PathVariable UUID idBike,
-			@Valid @RequestBody BikeEditadaRequest  BikeEditadaRequest);
+			@Valid @RequestBody BikeEditadaRequest  bikeEditadaRequest);
 }

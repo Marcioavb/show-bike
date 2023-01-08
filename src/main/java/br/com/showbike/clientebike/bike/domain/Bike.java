@@ -3,6 +3,7 @@ package br.com.showbike.clientebike.bike.domain;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import br.com.showbike.clientebike.bike.application.api.BikeEditadaRequest;
 import br.com.showbike.clientebike.bike.application.api.BikeRequest;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,7 +23,7 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class Bike {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(columnDefinition = "uuid", name = "idCliente", updatable = false, unique = true, nullable = false)
@@ -41,10 +42,9 @@ public class Bike {
 	private String cor;
 	@NotNull
 	private String numeroDeSerie;
-	
+
 	private LocalDateTime datahoraDoCadastro;
 	private LocalDateTime dataHoraDaUltimaAlteracao;
-	
 
 	public Bike(UUID idCliente, @Valid BikeRequest bikeRequest) {
 		this.idClientePropietario = idCliente;
@@ -54,5 +54,14 @@ public class Bike {
 		this.cor = bikeRequest.getCor();
 		this.numeroDeSerie = bikeRequest.getNumeroDeSerie();
 		this.datahoraDoCadastro = LocalDateTime.now();
+	}
+
+	public void altera(BikeEditadaRequest bikeRequest) {
+		this.marca = bikeRequest.getMarca();
+		this.modelo = bikeRequest.getModelo();
+		this.aro = bikeRequest.getAro();
+		this.cor = bikeRequest.getCor();
+		this.numeroDeSerie = bikeRequest.getNumeroDeSerie();
+		this.dataHoraDaUltimaAlteracao = LocalDateTime.now();
 	}
 }
