@@ -33,4 +33,12 @@ public class BikeController implements BikeApi {
 		log.info("[finaliza] BikeController - getBikesDoCliente");
 		return bikesDoCliente;
 	}
+
+	@Override
+	public BikeClienteDetalhadoResponse getBikesDoClienteComId(UUID idCliente, UUID idBike) {
+		log.info("[inicio] BikeController - getBikesDoClienteComId");
+		log.info("[idCliente] {}", idCliente);
+		log.info("[finaliza] BikeController - getBikesDoClienteComId");
+		return null;
+	}
 }

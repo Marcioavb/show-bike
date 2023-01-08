@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
 import jakarta.validation.Valid;
 
 @RestController
@@ -26,4 +27,9 @@ public interface BikeApi {
 	@ResponseStatus(code = HttpStatus.OK)
 	List<BikeClienteListReponse> getBikesDoCliente 
 	(@PathVariable UUID idCliente);
+	
+	@GetMapping(value = "/{idBike}")
+	@ResponseStatus(code = HttpStatus.OK)
+	BikeClienteDetalhadoResponse getBikesDoClienteComId
+	(@PathVariable UUID idCliente, @PathVariable UUID idBike);
 }
