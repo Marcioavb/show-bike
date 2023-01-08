@@ -50,4 +50,11 @@ public class BikeController implements BikeApi {
 		bikeService.deletaBikeComId(idCliente, idBike);
 		log.info("[finaliza] BikeController - deletaBikesDoClienteComId");
 	}
+
+	@Override
+	public void patchAlteraBike(UUID idCliente, UUID idBike, BikeEditadaRequest BikeEditadaRequest) {
+		log.info("[inicio] BikeController - patchAlteraBike");
+		log.info("[idCliente] {}",idCliente);
+		log.info("[inicio] BikeController - patchAlteraBike");
+	}
 }
