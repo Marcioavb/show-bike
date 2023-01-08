@@ -57,4 +57,11 @@ public class BikeApplicationService implements BikeService {
 		bikeRepository.deletaBike(bike);
 		log.info("[finaliza] BikeApplicationService - deletaBikeComId");
 	}
+
+	@Override
+	public void alteraBikeComId(UUID idCliente, UUID idBike) {
+		log.info("[inicio] BikeApplicationService - deletaBikeComId");
+		clienteService.buscaClienteAtravesId(idCliente);
+		log.info("[finmaliza] BikeApplicationService - deletaBikeComId");
+	}
 }

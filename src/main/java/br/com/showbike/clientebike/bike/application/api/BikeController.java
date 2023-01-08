@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.showbike.clientebike.bike.application.service.BikeService;
+import br.com.showbike.clientebike.cliente.application.service.ClienteService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -55,6 +56,7 @@ public class BikeController implements BikeApi {
 	public void patchAlteraBike(UUID idCliente, UUID idBike, BikeEditadaRequest BikeEditadaRequest) {
 		log.info("[inicio] BikeController - patchAlteraBike");
 		log.info("[idCliente] {}",idCliente);
+		bikeService.alteraBikeComId(idCliente, idBike);
 		log.info("[inicio] BikeController - patchAlteraBike");
 	}
 }
