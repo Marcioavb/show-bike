@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import br.com.showbike.clientebike.bike.application.api.BikeClienteDetalhadoResponse;
 import br.com.showbike.clientebike.bike.application.api.BikeClienteListReponse;
 import br.com.showbike.clientebike.bike.application.api.BikeRequest;
 import br.com.showbike.clientebike.bike.application.api.BikeResponse;
@@ -37,5 +38,13 @@ public class BikeApplicationService implements BikeService {
 		List<Bike> bikesDoCliente = bikeRepository.buscaBikesDoCliente(idCliente);
 		log.info("[finaliza] BikeApplicationService - buscaTodasBikeCliente");
 		return BikeClienteListReponse.converte(bikesDoCliente);
+	}
+
+	@Override
+	public BikeClienteDetalhadoResponse buscaBikeDoClienteComId(UUID idCliente, UUID idBike) {
+		log.info("[inicio] BikeApplicationService - buscaBikeDoClienteComId");
+		clienteService.buscaClienteAtravesId(idCliente);
+		log.info("[finaliza] BikeApplicationService - buscaBikeDoClienteComId");
+		return null;
 	}
 }

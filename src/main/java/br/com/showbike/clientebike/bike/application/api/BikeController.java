@@ -38,7 +38,8 @@ public class BikeController implements BikeApi {
 	public BikeClienteDetalhadoResponse getBikesDoClienteComId(UUID idCliente, UUID idBike) {
 		log.info("[inicio] BikeController - getBikesDoClienteComId");
 		log.info("[idCliente] {}", idCliente);
+		BikeClienteDetalhadoResponse bike = bikeService.buscaBikeDoClienteComId(idCliente, idBike);
 		log.info("[finaliza] BikeController - getBikesDoClienteComId");
-		return null;
+		return bike;
 	}
 }
